@@ -1,60 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="conatiner">
-        <h1 class="heading">Expense Tracker</h1>
-        <div class="financialStatus">
-            <p id="totalbalance" class="totalbalance"></p>
-            <h1 class="statusUpdate" id="statustext">Welcome to Expense Tracker</h1>
+      <h1 class="heading">Expense Tracker</h1>
+      <div class="financialStatus">
+        <p id="totalbalance" class="totalbalance"></p>
+        <h1 class="statusUpdate" id="statustext">Welcome to Expense Tracker</h1>
+      </div>
+      <div class="ExpenseShower">
+        <div class="balance">
+          <p>Deposit</p>
+          <p id="balanceAmount">--</p>
         </div>
-        <div class="ExpenseShower">
-            <div class="balance">
-                <p>Deposit</p>
-                <p id="balanceAmount">--</p>
-            </div>
-            <div class="Expense">
-                <p>Expense</p>
-                <p id="expenseAmount">--</p>
-            </div>
+        <div class="Expense">
+          <p>Expense</p>
+          <p id="expenseAmount">--</p>
         </div>
-        <p class="transaction-history">Transaction History</p>
-        <div class="transaction-block">
-            <div class="transactionlist" id="trlist"></div>
+      </div>
+      <p class="transaction-history">Transaction History</p>
+      <div class="transaction-block">
+        <div class="transactionlist" id="trlist"></div>
+      </div>
+      <div class="Additionbtn">
+        <button onclick="addTransaction()">Click To Add Transaction</button>
+      </div>
+      <div class="formtofillforexpenses" id="formtofillforexpenses">
+        <div class="modal">
+          <form action="" class="Expensesform">
+            <p id="formheading">Expense Form</p>
+
+            <label for="description">Please Provide Description</label><br />
+            <input
+              type="text"
+              name="description"
+              placeholder="Enter description"
+              id="descriptionofexpenses"
+              required
+            />
+            <p id="errordescriptionmsg" class="error"></p>
+            <br />
+            <label for="expenseType">Gain or Expense:</label><br />
+
+            <input
+              type="radio"
+              name="expenseType"
+              id="radiobtn"
+              value="Positive"
+            />Gain
+            <br />
+            <input
+              type="radio"
+              name="expenseType"
+              id="radiobtn"
+              value="Negative"
+            />Expense
+            <p id="erroringainorexpensesmsg" class="error"></p>
+            <br />
+            <label for="amount">Enter Amount</label><br />
+            <input
+              type="number"
+              name="amount"
+              placeholder="Enter Amount"
+              id="amountgot"
+              required
+            />
+            <p id="errorinamountmsg" class="error"></p>
+            <button type="button" onclick="save()" id="formsavebtn">
+              Save
+            </button>
+          </form>
         </div>
-        <div class="Additionbtn">
-            <button onclick="addTransaction()">Click To Add Transaction</button>
-        </div>
-        <div class="formtofillforexpenses" id="formtofillforexpenses">
-            <div class="modal">
-            <form action="" class="Expensesform">
-                <p id="formheading">Expense Form</p>
-                
-                <label for="description">Please Provide Description</label><br>
-                <input type="text" name="description" placeholder="Enter description" id="descriptionofexpenses" required>
-                <p id="errordescriptionmsg" class="error"></p>
-                <br>
-                <label for="expenseType">Gain or Expense:</label><br>
-                
-                <input type="radio" name="expenseType" id="radiobtn" value="Positive" >Gain
-                <br>
-                <input type="radio" name="expenseType" id="radiobtn" value="Negative" >Expense 
-                <p id="erroringainorexpensesmsg" class="error"></p>
-                <br>
-                <label for="amount">Enter Amount</label><br>
-                <input type="number" name="amount"  placeholder="Enter Amount" id="amountgot" required>
-                <p id="errorinamountmsg" class="error"></p>
-                <button type="button" onclick="save()" id="formsavebtn">Save</button>
-            </form>
-        </div>
-        </div>
+      </div>
     </div>
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>
